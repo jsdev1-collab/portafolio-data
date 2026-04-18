@@ -1,0 +1,27 @@
+-- Crear tabla de productos
+CREATE TABLE productos (
+    id INT,
+    nombre VARCHAR(50),
+    categoria VARCHAR(50),
+    stock INT
+);
+
+-- Insertar datos
+INSERT INTO productos VALUES (1, 'Leche', 'Lacteos', 15);
+INSERT INTO productos VALUES (2, 'Queso', 'Lacteos', 40);
+INSERT INTO productos VALUES (3, 'Yogurt', 'Lacteos', 34);
+INSERT INTO productos VALUES (4, 'Pan', 'Panaderia', 10);
+INSERT INTO productos VALUES (5, 'Huevos', 'Abarrotes', 5);
+
+-- Consultar todos los productos
+SELECT * FROM productos;
+
+-- Productos con bajo stock
+SELECT nombre, stock 
+FROM productos
+WHERE stock < 20;
+
+-- Productos por categoría
+SELECT categoria, COUNT(*) as total
+FROM productos
+GROUP BY categoria;
